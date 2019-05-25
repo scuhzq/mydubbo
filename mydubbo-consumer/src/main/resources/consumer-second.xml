@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="demo-consumer-second"/>
+
+    <!-- 集群配置<dubbo:registry address="zookeeper://10.20.153.10:2181?backup=10.20.153.11:2181,10.20.153.12:2181" /> -->
+    <!-- 单节点配置 -->
+    <dubbo:registry id="hzqDubboV1" protocol="zookeeper" address="127.0.0.1:2181" />
+
+    <dubbo:reference id="demoService" interface="com.hzq.IDemoService"/>
+
+</beans>
